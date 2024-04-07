@@ -12,19 +12,17 @@ npm run dev
 
 ## Deployment
 
-First, build your app for production:
+To deploy to Fly.io first install flyctl with the following command:
 
-```sh
-npm run build
+```shellscript
+brew install flyctl
 ```
 
-Then run the app in production mode:
+then to deploy run
 
-```sh
-npm start
+```shellscript
+flyctl launch
 ```
-
-Now you'll need to pick a host to deploy it to.
 
 ### DIY
 
