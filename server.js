@@ -3,6 +3,7 @@ import { installGlobals } from "@remix-run/node";
 import compression from "compression";
 import express from "express";
 import morgan from "morgan";
+import { CronJob } from 'cron';
 
 installGlobals();
 
@@ -38,6 +39,16 @@ if (viteDevServer) {
     express.static("build/client/assets", { immutable: true, maxAge: "1y" })
   );
 }
+const job = new CronJob(
+	'10 56 12 * * *', // cronTime: 'seconds minutes hours days-of-month months day of week'
+	function () {
+		console.log('You will see this message once a day');
+	}, // onTick
+	null, // onComplete
+	true, // start
+);
+
+console.log('Is Job Running?: ' + job.running)
 
 // Everything else (like favicon.ico) is cached for an hour. You may want to be
 // more aggressive with this caching.
