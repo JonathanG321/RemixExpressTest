@@ -40,7 +40,7 @@ if (viteDevServer) {
   );
 }
 const job = new CronJob(
-	'10 56 12 * * *', // cronTime: 'seconds minutes hours days-of-month months day of week'
+	'0 10 13 * * *', // cronTime: 'seconds minutes hours days-of-month months day of week'
 	function () {
 		console.log('You will see this message once a day');
 	}, // onTick
@@ -54,7 +54,7 @@ console.log('Is Job Running?: ' + job.running)
 // more aggressive with this caching.
 app.use(express.static("build/client", { maxAge: "1h" }));
 
-app.use(morgan("tiny"));
+app.use(morgan("dev"));
 
 // handle SSR requests
 app.all("*", remixHandler);
