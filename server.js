@@ -40,7 +40,7 @@ if (viteDevServer) {
   );
 }
 const job = new CronJob(
-	'0 10 13 * * *', // cronTime: 'seconds minutes hours days-of-month months day of week'
+	'0 37 13 * * *', // cronTime: 'seconds minutes hours days-of-month months day of week'
 	function () {
 		console.log('You will see this message once a day');
 	}, // onTick
